@@ -31,7 +31,6 @@ class CronjobsTest extends Unit
     }
 
     /**
-     *
      * @return void
      */
     public function testGetCommand()
