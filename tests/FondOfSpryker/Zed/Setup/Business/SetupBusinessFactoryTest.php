@@ -4,7 +4,7 @@ namespace FondOfSpryker\Zed\Setup\Business;
 
 use Codeception\Test\Unit;
 use FondOfSpryker\Zed\Setup\Business\Model\Cronjobs;
-use org\bovigo\vfs\vfsStream;
+use Spryker\Zed\Setup\SetupConfig;
 
 class SetupBusinessFactoryTest extends Unit
 {
@@ -14,9 +14,9 @@ class SetupBusinessFactoryTest extends Unit
     protected $setupBusinessFactory;
 
     /**
-     * @var \org\bovigo\vfs\vfsStreamDirectory
+     * @var \Spryker\Zed\Setup\SetupConfig|\PHPUnit\Framework\MockObject\MockObject
      */
-    protected $vfsStreamDirectory;
+    protected $setupConfigMock;
 
     /**
      * @return void
@@ -25,14 +25,11 @@ class SetupBusinessFactoryTest extends Unit
     {
         $this->setupBusinessFactory = new SetupBusinessFactory();
 
-        $this->vfsStreamDirectory = vfsStream::setup('root', null, [
-            'config' => [
-                'Shared' => [
-                    'stores.php' => file_get_contents(codecept_data_dir('stores.php')),
-                    'config_default.php' => file_get_contents(codecept_data_dir('config_default.php')),
-                ],
-            ],
-        ]);
+        $this->setupConfigMock = $this->getMockBuilder(SetupConfig::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $this->setupBusinessFactory->setConfig($this->setupConfigMock);
     }
 
     /**

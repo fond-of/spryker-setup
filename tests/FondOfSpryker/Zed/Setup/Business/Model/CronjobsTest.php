@@ -21,7 +21,7 @@ class CronjobsTest extends Unit
     /**
      * @return void
      */
-    protected function _before()
+    protected function _before(): void
     {
         $this->setupConfigMock = $this->getMockBuilder(SetupConfig::class)
             ->disableOriginalConstructor()
@@ -31,9 +31,11 @@ class CronjobsTest extends Unit
     }
 
     /**
+     * @throws
+     *
      * @return void
      */
-    public function testPrepareJobXmlWithDaysToKeep()
+    public function testPrepareJobXmlWithDaysToKeep(): void
     {
         $expectedXml = "<?xml version='1.0' encoding='UTF-8'?>
 <project>
@@ -88,9 +90,11 @@ cd " . APPLICATION_ROOT_DIR . "
     }
 
     /**
+     * @throws
+     *
      * @return void
      */
-    public function testPrepareJobXmlWithBuildsToKeep()
+    public function testPrepareJobXmlWithBuildsToKeep(): void
     {
         $expectedXml = "<?xml version='1.0' encoding='UTF-8'?>
 <project>
@@ -146,9 +150,11 @@ cd " . APPLICATION_ROOT_DIR . "
     }
 
     /**
+     * @throws
+     *
      * @return void
      */
-    public function testPrepareJobXmlWithPriority()
+    public function testPrepareJobXmlWithPriority(): void
     {
         $expectedXml = "<?xml version='1.0' encoding='UTF-8'?>
 <project>
@@ -203,9 +209,11 @@ cd " . APPLICATION_ROOT_DIR . "
     }
 
     /**
+     * @throws
+     *
      * @return void
      */
-    public function testGetCommand()
+    public function testGetCommand(): void
     {
         $store = 'UNIT';
         $command = '$PHP_BIN vendor/bin/console test:test';
