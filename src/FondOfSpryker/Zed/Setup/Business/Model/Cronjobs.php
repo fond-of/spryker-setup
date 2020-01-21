@@ -7,8 +7,8 @@ use Spryker\Zed\Setup\Business\Model\Cronjobs as BaseCronjobs;
 
 class Cronjobs extends BaseCronjobs
 {
-    const DEFAULT_AMOUNT_OF_BUILDS_FOR_LOGFILE_ROTATION = -1;
-    const FALLBACK_AMOUNT_OF_DAYS_FOR_LOGFILE_ROTATION = -1;
+    protected const DEFAULT_AMOUNT_OF_BUILDS_FOR_LOGFILE_ROTATION = -1;
+    protected const FALLBACK_AMOUNT_OF_DAYS_FOR_LOGFILE_ROTATION = -1;
 
     /**
      * Get number of builds to keep job output history. Each run is a directory, so we definitely need to keep it clean.
@@ -91,10 +91,10 @@ class Cronjobs extends BaseCronjobs
     protected function getCommand($command, $store)
     {
         $environment = Environment::getInstance();
-        $environment_name = $environment->getEnvironment();
+        $environmentName = $environment->getEnvironment();
 
         return "<command>
-export APPLICATION_ENV=$environment_name
+export APPLICATION_ENV=$environmentName
 export APPLICATION_STORE=$store
 cd " . APPLICATION_ROOT_DIR . "
 . ./config/Zed/cronjobs/cron.conf
