@@ -31,8 +31,6 @@ class CronjobsTest extends Unit
     }
 
     /**
-     * @throws
-     *
      * @return void
      */
     public function testPrepareJobXmlWithDaysToKeep(): void
@@ -90,8 +88,6 @@ cd " . APPLICATION_ROOT_DIR . "
     }
 
     /**
-     * @throws
-     *
      * @return void
      */
     public function testPrepareJobXmlWithBuildsToKeep(): void
@@ -150,8 +146,6 @@ cd " . APPLICATION_ROOT_DIR . "
     }
 
     /**
-     * @throws
-     *
      * @return void
      */
     public function testPrepareJobXmlWithPriority(): void
@@ -209,8 +203,6 @@ cd " . APPLICATION_ROOT_DIR . "
     }
 
     /**
-     * @throws
-     *
      * @return void
      */
     public function testGetCommand(): void
